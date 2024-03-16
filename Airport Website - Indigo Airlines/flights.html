@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" href="flight.css">
+</head>
+<body>   
+    <h2 class="world">Compare and Book Flights with Ease</h2>
+    <center><p>Discover Your Next Dream Destination</p></center>
+    <div class="form-container">
+        <form action="thankyou.png">
+            <input type="radio" name="radio">Round trip
+            <input type="radio" name="radio"> One- way
+            <input type="radio" name="radio">Multi-City
+            <select name="Field">
+                <option value="Economy">Economy</option>
+                <option value="Premimum" selected>Premium</option>
+                <option value="Firstclass">First class</option>
+                <option value="Business">Business</option>
+            </select>
+            <br><br>
+            <fieldset>
+                <legend>PERSONAL INFORMATION</legend>
+                <div class="q">
+                    Name
+                    <BR>
+                    <input type="text" id="fname" placeholder="First Name"> <input type="text" id="lname" placeholder="Last Name">
+                    <br>
+                    Date
+                    <br>
+                    <input type="date" id="a">
+                    <br>
+                    Contact
+                    <br>
+                    <input type="text" placeholder="Phone Number" id="b"> <input type="email" placeholder="E-mail Address" id="c">
+                    <br>
+                    Address
+                    <br>
+                    <input type="text" placeholder=" Street Address " id="c"> <input type="text" placeholder=" Street Address Line 2 " id="d">
+                    <br>
+                    <input type="text" placeholder=" City " id="e"> <input type="text" placeholder=" Region " id="f">
+                    <br>
+                    <input type="text" placeholder=" Postal/Zip Code " id="g"> <input type="text" placeholder=" Country " id="h"> 
+                    <br>
+                    Departure Date
+                    <br>  
+                    <input type="date" id="departuredate">
+                    <br>
+                    Departure Time
+                    <br>
+                    <input type="time" id="departuretime" >
+                    <br>
+                    Return Date
+                    <br>
+                    <input type="date" id="returndate">
+                    <br>
+                    Return time
+                    <br>
+                    <input type="time" id="returntime">
+                    <br>
+                    Departuring From
+                    <br>
+                    <input type="text" placeholder="City" id="l"> <input type="text" placeholder="Country" id="i">  
+                    <br> Destination <br>
+                    <input type="text" placeholder="City" id="k"> <input type="text" placeholder="Country" id="j"> 
+                    <br><br>
+                </div>
+            </fieldset>
+            <button type="submit" value="Submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
