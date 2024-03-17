@@ -22,7 +22,7 @@ class quiz_app extends brainy_buzzer implements ActionListener {
     JFrame frame2=new JFrame();
     JFrame frame3=new JFrame();
     JFrame frame4=new JFrame();
-    JLabel l,l1, l2, l3, l4, l5, l6, l7,l8, f2l1, f2l2,f2l3,f2l5, name_label_f3,f3l2, question_l2_f3,f4l1,f4l2;
+    JLabel l,l1,l1_1, l2, l3, l4,l4_4, l5,l5_5, l6,l6_6, l7,l8,l9,l9_9,f2l1, f2l2,f2l3,f2l5, name_label_f3, question_l1_f3, loading_label, question_l2_f3,f4l1,f4l2;
     JRadioButton r1,r2,r3,r4,f2r3,f2r4,f2r5;
     ButtonGroup bg1,bg2;
     int q_no=1, score=0;
@@ -36,7 +36,6 @@ class quiz_app extends brainy_buzzer implements ActionListener {
     String name;
     URL api_url;
 
-
     //    .......................FRAME 1............................
     void frame1_method() {
 
@@ -46,64 +45,87 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         frame1.setIconImage(icon.getImage());
         frame1.setTitle("Brainy Buzzer");
         frame1.setLayout(null);
-        frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame1.setVisible(true);
-        frame1.setSize(850, 550);
+        frame1.setSize(850, 570);
         frame1.setResizable(false);
         frame1.setLocationRelativeTo(null);
 
 //        elements
-        l = new JLabel("Instructions");
-        l1 = new JLabel("1. Choose Your Quiz: Select a quiz category from the options provided.");
-        l2 = new JLabel("2. Test Your Knowledge: Answer the questions presented to you");
-        l3 = new JLabel("within the given time limit.");
-        l4 = new JLabel("3. Earn Points: Earn points for each correct answer.");
-        l5 = new JLabel("The quicker you answer, the more points you'll earn!");
-        l6 = new JLabel("4. Challenge Yourself: Beat your own high score or compete with");
-        l7 = new JLabel("friends to see who's the ultimate quiz champion.");
-        l8 = new JLabel("5. Learn and Have Fun: Enjoy learning new facts and trivia while");
+        l = new JLabel("INSTRUCTIONS!");
+        l1 = new JLabel("Start Quiz");
+        l1_1 =new JLabel("1. Click on the \"Next\" button to proceed.");
+        l2 = new JLabel("2. Enter your name in the designated field.");
+        l3 = new JLabel("3. Select the desired quiz level from the available options.");
+        l4 = new JLabel("4. Once selected, the questions corresponding to the chosen level");
+        l4_4 = new JLabel("    will be displayed.");
+        l5 = new JLabel("Taking the Quiz");
+        l5_5 = new JLabel("5. Click on the \"Start Quiz\" button to begin.");
+        l6 = new JLabel("6. There are total number of 10 questions.");
+        l6_6 = new JLabel("7. Answer each question to the best of your ability.\n");
+        l7 = new JLabel("8. Use the \"Next\" button to move to the next question.");
+        l8 = new JLabel("Quiz Completion");
+        l9 = new JLabel("9. At the last question, instead of \"Next,\" you will see a ");
+        l9_9 = new JLabel( "    \"Get Results\" button. Click on it to view your calculated score.");
 
         l.setForeground(new Color(15, 82, 186));
+        l1.setForeground(new Color(15, 82, 186));
+        l5.setForeground(new Color(15, 82, 186));
+        l8.setForeground(new Color(15, 82, 186));
         Color textColor = Color.BLACK;
-        l1.setForeground(textColor);
+        l1_1.setForeground(textColor);
         l2.setForeground(textColor);
         l3.setForeground(textColor);
         l4.setForeground(textColor);
-        l5.setForeground(textColor);
+        l4_4.setForeground(textColor);
+        l5_5.setForeground(textColor);
         l6.setForeground(textColor);
+        l6_6.setForeground(textColor);
         l7.setForeground(textColor);
-        l8.setForeground(textColor);
-
-        Font font1 = new Font("Times New Roman",Font.BOLD,24);
-        l.setFont(font1);
+        l9.setForeground(textColor);
+        l9_9.setForeground(textColor);
+        Font font12 = new Font("Times New Roman",Font.BOLD,24);
+        l.setFont(font12);
+        Font font1 = new Font("Times New Roman",Font.BOLD,20);
+        l1.setFont(font1);
+        l5.setFont(font1);
+        l8.setFont(font1);
         Font font = new Font("Times New Roman", Font.PLAIN, 18);
-        l1.setFont(font);
+        l1_1.setFont(font);
         l2.setFont(font);
         l3.setFont(font);
         l4.setFont(font);
-        l5.setFont(font);
+        l4_4.setFont(font);
+        l5_5.setFont(font);
         l6.setFont(font);
+        l6_6.setFont(font);
         l7.setFont(font);
-        l8.setFont(font);
+        l9.setFont(font);
+        l9_9.setFont(font);
 
-        l.setBounds(10, 10, 300, 40);
+        l.setBounds(10, 10, 800, 40);
         l1.setBounds(10, 50, 800, 30);
-        l2.setBounds(10, 90, 800, 30);
+        l1_1.setBounds(10, 80, 800, 30);
+        l2.setBounds(10, 105, 800, 30);
         l3.setBounds(10, 130, 800, 30);
-        l4.setBounds(10, 170, 800, 30);
+        l4.setBounds(10, 155, 800, 30);
+        l4_4.setBounds(10, 180, 800, 30);
         l5.setBounds(10, 210, 800, 30);
-        l6.setBounds(10, 250, 800, 30);
-        l7.setBounds(10, 290, 800, 30);
-        l8.setBounds(10, 330, 800, 30);
+        l5_5.setBounds(10, 240, 800, 30);
+        l6.setBounds(10, 265, 800, 30);
+        l6_6.setBounds(10,290,800,30);
+        l7.setBounds(10, 315, 800, 30);
+        l8.setBounds(10, 345, 800, 30);
+        l9.setBounds(10, 375, 800, 30);
+        l9_9.setBounds(10, 400, 800, 30);
 
         f1_next_button = new JButton("Next");
-        f1_next_button.setBounds(230, 400, 80, 50);
+        f1_next_button.setBounds(250, 455, 80, 50);
         f1_next_button.setBackground(new Color(15, 82, 186));
         f1_next_button.setForeground(Color.WHITE);
         f1_next_button.addActionListener(this);
 
         f1_exit_button = new JButton("Exit");
-        f1_exit_button.setBounds(320, 400, 80, 50);
+        f1_exit_button.setBounds(345, 455, 80, 50);
         f1_exit_button.setBackground(new Color(15, 82, 186));
         f1_exit_button.setForeground(Color.WHITE);
         f1_exit_button.addActionListener(this);
@@ -111,13 +133,19 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         //add elements inside frame 1
         frame1.add(l);
         frame1.add(l1);
+        frame1.add(l1_1);
         frame1.add(l2);
         frame1.add(l3);
         frame1.add(l4);
+        frame1.add(l4_4);
         frame1.add(l5);
+        frame1.add(l5_5);
         frame1.add(l6);
+        frame1.add(l6_6);
         frame1.add(l7);
         frame1.add(l8);
+        frame1.add(l9);
+        frame1.add(l9_9);
         frame1.add(f1_next_button);
         frame1.add(f1_exit_button);
 
@@ -160,13 +188,13 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         f2l5.setBounds(20, 100, 100, 25);
 
         f2_startquiz_button = new JButton("Start Quiz");
-        f2_startquiz_button.setBounds(20, 220, 150, 40);
+        f2_startquiz_button.setBounds(20, 210, 150, 40);
         f2_startquiz_button.setBackground(new Color(15, 82, 186));
         f2_startquiz_button.setForeground(Color.WHITE);
         f2_startquiz_button.addActionListener(this);
 
         f2_previous_button = new JButton("Previous Page");
-        f2_previous_button.setBounds(200, 220, 150, 40);
+        f2_previous_button.setBounds(200, 210, 150, 40);
         f2_previous_button.setBackground(new Color(15, 82, 186));
         f2_previous_button.setForeground(Color.WHITE);
         f2_previous_button.addActionListener(this);
@@ -185,7 +213,6 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         bg1.add(f2r4);
         bg1.add(f2r5);
 
-        // Add elements inside transparent box
         transparent_box.add(f2l1);
         transparent_box.add(f2l2);
         transparent_box.add(f2l5);
@@ -196,32 +223,13 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         transparent_box.add(f2r4);
         transparent_box.add(f2r5);
 
-        // Add transparent box to frame 2
         frame2.add(transparent_box);
-    }
-
-
-    void delay_function()
-    {
-
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        int delayInSeconds = 5;
-
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
-                next_q.setEnabled(true);
-            }
-        }, delayInSeconds, TimeUnit.SECONDS);
-
     }
 
 
     //    .............................FRAME 3................................
     void frame3_method()
     {
-
-
         // frame properties
         frame3.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame3.setContentPane(new JLabel(f3_bg_image));
@@ -244,9 +252,9 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         name_label_f3.setBounds(200, 75, 450, 50);
 
 //        question
-        f3l2 = new JLabel();
-        f3l2.setForeground(Color.WHITE);
-        f3l2.setBounds(120, 150, 850, 50);
+        question_l1_f3 = new JLabel();
+        question_l1_f3.setForeground(Color.WHITE);
+        question_l1_f3.setBounds(120, 150, 850, 50);
 
 //        question label 2
         question_l2_f3 = new JLabel();
@@ -279,26 +287,32 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         bg2.add(r3);
         bg2.add(r4);
 
-
-
         next_q = new JButton("Next Question");
-        next_q.setBounds(300, 382, 200, 50);
+        next_q.setBounds(340, 370, 200, 50);
         next_q.addActionListener(this);
-        next_q.setEnabled(false);
+
 
         get_results = new JButton("Get Results");
-        get_results.setBounds(300, 382, 200, 50);
+        get_results.setBounds(340, 370, 200, 50);
         get_results.addActionListener(this);
+
+        loading_label = new JLabel("Loading Question...");
+        loading_label.setForeground(Color.white);
+        Font labfont = new Font("Times New Roman",Font.BOLD,25);
+        loading_label.setFont(labfont);
+        loading_label.setBounds(340,240,450,40);
+        loading_label.setVisible(false);
 
         // add elements inside frame3
         frame3.add(name_label_f3);
-        frame3.add(f3l2);
+        frame3.add(question_l1_f3);
         frame3.add(question_l2_f3);
         frame3.add(r1);
         frame3.add(r2);
         frame3.add(r3);
         frame3.add(r4);
         frame3.add(next_q);
+        frame3.add(loading_label);
 
 
 
@@ -329,7 +343,7 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         Font font5 = new Font("Times New Roman",Font.BOLD,80);
         f4l2.setFont(font5);
         f4l2.setForeground(new Color(15,82,186));
-        f4l2.setBounds(180, 270, 300, 60);
+        f4l2.setBounds(200, 270, 300, 60);
         exit_button_f4 = new JButton("Exit");
         exit_button_f4.setBounds(320, 450, 90, 50);
         exit_button_f4.setBackground(new Color(15, 82, 186));
@@ -339,67 +353,111 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         frame4.add(f4l2);
         frame4.add(exit_button_f4);
 
-
     }
-
     void api() {
-        delay_function();
-        try {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        int delayInSeconds = 5;
 
 
-            if (f2r3.isSelected()) {
-                api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple");
-            } else if (f2r4.isSelected()) {
-                api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple");
-            } else if (f2r5.isSelected()) {
-                api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=hard&type=multiple");
-            }
+        loading_label.setVisible(true);
+        question_l1_f3.setVisible(false);
+        question_l2_f3.setVisible(false);
+        r1.setVisible(false);
+        r2.setVisible(false);
+        r3.setVisible(false);
+        r4.setVisible(false);
+        next_q.setVisible(false);
+        get_results.setVisible(false);
 
-            HttpURLConnection connection = (HttpURLConnection) api_url.openConnection();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
-            }
-            reader.close();
+        scheduler.schedule(new Runnable()
+        {
 
-            Gson gson = new Gson();
-            JsonObject jsonResponse = gson.fromJson(response.toString(), JsonObject.class);
+            @Override
+            public void run() {
 
-            JsonArray questionsArray = jsonResponse.getAsJsonArray("results");
+                try {
+                    if (f2r3.isSelected()) {
+                        api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple");
+                    } else if (f2r4.isSelected()) {
+                        api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple");
+                    } else if (f2r5.isSelected()) {
+                        api_url = new URL("https://opentdb.com/api.php?amount=1&difficulty=hard&type=multiple");
+                    }
 
-            if (questionsArray.size() > 0) {
-                JsonObject questionObject = questionsArray.get(0).getAsJsonObject();
-                question = replace(questionObject.get("question").getAsString()) ;
-                f3l2.setText(q_no + ". " + question);
+                    HttpURLConnection connection = (HttpURLConnection) api_url.openConnection();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-                // If the question length exceeds 90 characters, split it into multiple lines
-                if (f3l2.getText().length() > 90) {
-                    int length = f3l2.getText().length();
-                    String remainingText = f3l2.getText().substring(90, length);
-                    question_l2_f3.setText(remainingText);
-                    f3l2.setText(f3l2.getText().substring(0, 90));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+
+                    Gson gson = new Gson();
+                    JsonObject jsonResponse = gson.fromJson(response.toString(), JsonObject.class);
+
+                    System.out.println(jsonResponse);
+
+                    JsonArray questionsArray = jsonResponse.getAsJsonArray("results");
+
+                    if (questionsArray.size() > 0) {
+                        JsonObject questionObject = questionsArray.get(0).getAsJsonObject();
+                        question = replace(questionObject.get("question").getAsString());
+                        question_l1_f3.setText(q_no + ". " + question);
+
+                        // If the question length exceeds 90 characters, split it into multiple lines so that it remains inside the background image
+                        if (question_l1_f3.getText().length() > 90) {
+                            int length = question_l1_f3.getText().length();
+                            String remainingText = question_l1_f3.getText().substring(90, length);
+                            question_l2_f3.setText(remainingText);
+                            question_l1_f3.setText(question_l1_f3.getText().substring(0, 90));
+                        }
+
+                        correctAnswer = replace(questionObject.get("correct_answer").getAsString());
+                        JsonArray incorrectAnswersArray = questionObject.getAsJsonArray("incorrect_answers");
+                        ArrayList<String> allAnswers = new ArrayList<>();
+                        allAnswers.add(correctAnswer);
+                        for (JsonElement incorrectAnswer : incorrectAnswersArray) {
+                            allAnswers.add(replace(incorrectAnswer.getAsString()));
+                        }
+                        Collections.shuffle(allAnswers);
+                        r1.setText(allAnswers.get(0));
+                        r2.setText(allAnswers.get(1));
+                        r3.setText(allAnswers.get(2));
+                        r4.setText(allAnswers.get(3));
+                    }
+
+                    loading_label.setVisible(false);
+                    question_l1_f3.setVisible(true);
+                    question_l2_f3.setVisible(true);
+                    r1.setVisible(true);
+                    r2.setVisible(true);
+                    r3.setVisible(true);
+                    r4.setVisible(true);
+                    next_q.setVisible(true);
+                    get_results.setVisible(true);
+
+                } catch (Exception e)
+                {
+                    System.out.println("error_catch");
                 }
 
-                correctAnswer =replace(questionObject.get("correct_answer").getAsString());
-                JsonArray incorrectAnswersArray = questionObject.getAsJsonArray("incorrect_answers");
-                ArrayList<String> allAnswers = new ArrayList<>();
-                allAnswers.add(correctAnswer);
-                for (JsonElement incorrectAnswer : incorrectAnswersArray) {
-                    allAnswers.add(replace(incorrectAnswer.getAsString()));
-                }
-                Collections.shuffle(allAnswers);
-                r1.setText(allAnswers.get(0));
-                r2.setText(allAnswers.get(1));
-                r3.setText(allAnswers.get(2));
-                r4.setText(allAnswers.get(3));
             }
-        } catch (Exception e) {
-            System.out.println("error_catch");
-        }
+
+        }, delayInSeconds, TimeUnit.SECONDS);
     }
+    private static String replace(String text)
+    {
+        return text.replaceAll("&quot;", "\"")
+                .replaceAll("&amp;", "&")
+                .replaceAll("&#039;", "'")
+                .replaceAll("&lt;", "<")
+                .replaceAll("&gt;", ">");
+    }
+
+
     boolean internet_connection() {
         try {
             URL url = new URL("http://www.google.com");
@@ -412,14 +470,7 @@ class quiz_app extends brainy_buzzer implements ActionListener {
         }
     }
 
-    private static String replace(String text)
-    {
-        return text.replaceAll("&quot;", "\"")
-                .replaceAll("&amp;", "&")
-                .replaceAll("&#039;", "'")
-                .replaceAll("&lt;", "<")
-                .replaceAll("&gt;", ">");
-    }
+
     void calculate_score()
     {
         if (r1.isSelected()) {
@@ -476,8 +527,6 @@ class quiz_app extends brainy_buzzer implements ActionListener {
             }
         }
         else if (e.getSource() == next_q) {
-            next_q.setEnabled(false);
-
             question_l2_f3.setText(null);
             calculate_score();
 
