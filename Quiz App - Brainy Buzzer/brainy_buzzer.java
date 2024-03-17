@@ -28,11 +28,12 @@ class quiz_app extends brainy_buzzer implements ActionListener {
     int q_no=1, score=0;
     JTextField name_input;
     JButton f1_exit_button, f1_next_button, f2_startquiz_button, f2_previous_button, next_q , get_results, exit_button_f4;
-    ImageIcon icon =new ImageIcon("D:\\Java_Project\\untitled\\src\\icon_image.png");
-    ImageIcon f1_bg_image=new ImageIcon("D:\\Java_Project\\untitled\\src\\frame1_image.jpg");
-    ImageIcon f2_bg_image =new ImageIcon("D:\\Java_Project\\untitled\\src\\frame2_image.png");
-    ImageIcon f3_bg_image =new ImageIcon("D:\\Java_Project\\untitled\\src\\frame3_image.jpg");
-    ImageIcon f4_bg_image =new ImageIcon("D:\\Java_Project\\untitled\\src\\frame4_image.jpg");
+    // edit the path where you save the images
+    ImageIcon icon =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\icon_image.png");
+    ImageIcon f1_bg_image=new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame1_image.jpg");
+    ImageIcon f2_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame2_image.png");
+    ImageIcon f3_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame3_image.jpg");
+    ImageIcon f4_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame4_image.jpg");
     String name;
     URL api_url;
 
@@ -397,9 +398,6 @@ class quiz_app extends brainy_buzzer implements ActionListener {
 
                     Gson gson = new Gson();
                     JsonObject jsonResponse = gson.fromJson(response.toString(), JsonObject.class);
-
-                    System.out.println(jsonResponse);
-
                     JsonArray questionsArray = jsonResponse.getAsJsonArray("results");
 
                     if (questionsArray.size() > 0) {
