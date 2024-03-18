@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.city-container {
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
+    background-image: url("Home_page_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.nav_ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
+    background: linear-gradient(to right, rgb(71, 57, 132), rgba(0, 0, 0, 0.8));
+    padding: 15px 0;
+    border-radius: 10px;
+}
+
+.nav_li {
+    margin: 0; 
+}
+
+.nav_li a {
+    text-decoration: none;
+    color:white;
+    font-size: 20px; 
+    margin-left: 60px;
+    padding:8px; 
+    border-bottom: 2px solid transparent; 
+    transition: border-bottom 0.3s ease, color 0.3s ease; 
+}
+
+.nav_ul .nav_li a.active,
+.nav_ul .nav_li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255); 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+    border-radius: 5px;
+}
+
+
+.city-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.city-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.city {
+    margin: 20px;
+}
+
+.city img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px; 
+}
+
+.city-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px; 
+}
