@@ -55,6 +55,7 @@ class movie_ticket_booking extends main implements ActionListener{
     ImageIcon ticket_image = new ImageIcon("ticket_image.jpg");
     ImageIcon payment_image = new ImageIcon("payment_image.jpg");
     ImageIcon ticket_image_2 = new ImageIcon("ticket_image_2.jpg");
+
     //Seating Panels-------------------
     JPanel silver = new JPanel();
     JPanel Gold = new JPanel();
@@ -254,7 +255,7 @@ class movie_ticket_booking extends main implements ActionListener{
 
 
 
-        timing_frame.setSize(550, 600);
+        timing_frame.setSize(600, 600);
         timing_frame.setLayout(null);
         timing_frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         timing_frame.setTitle("Timings");
@@ -262,7 +263,7 @@ class movie_ticket_booking extends main implements ActionListener{
         timing_frame.setContentPane(new JLabel(ticket_image));
 
         movie1_label = new JLabel("");
-        movie1_label.setBounds(10, 30, 350, 30);
+        movie1_label.setBounds(10, 30, 450, 30);
         movie1_label.setFont(font1);
 
         cities.setBounds(15, 80, 120, 30);
