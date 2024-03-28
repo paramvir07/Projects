@@ -29,11 +29,11 @@ class quiz_app extends brainy_buzzer implements ActionListener {
     JTextField name_input;
     JButton f1_exit_button, f1_next_button, f2_startquiz_button, f2_previous_button, next_q , get_results, exit_button_f4;
     // edit the path where you save the images
-    ImageIcon icon =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\icon_image.png");
-    ImageIcon f1_bg_image=new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame1_image.jpg");
-    ImageIcon f2_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame2_image.png");
-    ImageIcon f3_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame3_image.jpg");
-    ImageIcon f4_bg_image =new ImageIcon("D:\\Java_Project\\Brainy_Buzzer\\src\\frame4_image.jpg");
+    ImageIcon icon =new ImageIcon("icon_image.png");
+    ImageIcon f1_bg_image=new ImageIcon("frame1_image.jpg");
+    ImageIcon f2_bg_image =new ImageIcon("frame2_image.png");
+    ImageIcon f3_bg_image =new ImageIcon("frame3_image.jpg");
+    ImageIcon f4_bg_image =new ImageIcon("frame4_image.jpg");
     String name;
     URL api_url;
 
