@@ -261,7 +261,7 @@ class movie_ticket_booking extends main implements ActionListener{
         timing_frame.setIconImage(icon.getImage());
         timing_frame.setContentPane(new JLabel(ticket_image));
 
-        movie1_label = new JLabel("TIGER 3-HINDI");
+        movie1_label = new JLabel("");
         movie1_label.setBounds(10, 30, 350, 30);
         movie1_label.setFont(font1);
 
@@ -905,28 +905,29 @@ class movie_ticket_booking extends main implements ActionListener{
         if (e.getSource()== movie1_button) {
             timing_frame.setVisible(true);
             homepage_frame.dispose();
-            Save_Movie_Name="Tiger-Hindi";
+            movie1_label.setText("TIGER 3 - HINDI");
+            Save_Movie_Name="Tiger 3 - Hindi";
         }
 //        Image Poster 2 | Hunger games
         else if (e.getSource()== movie2_button) {
             timing_frame.setVisible(true);
             homepage_frame.dispose();
-            movie1_label.setText("THE HUNGER GAMES-ENGLISH");
-            Save_Movie_Name="The Hunger Games-English";
+            movie1_label.setText("THE HUNGER GAMES - ENGLISH");
+            Save_Movie_Name="The Hunger Games - English";
         }
 //        Image poster 3 | 12th Fail
         else if (e.getSource()==movie3_button) {
             timing_frame.setVisible(true);
             homepage_frame.dispose();
-            movie1_label.setText("12TH FAIL-HINDI");
-            Save_Movie_Name="12th Fail-Hindi";
+            movie1_label.setText("12TH FAIL - HINDI");
+            Save_Movie_Name="12th Fail - Hindi";
         }
 //        Image poster 4
         else if (e.getSource()==movie4_button) {
             timing_frame.setVisible(true);
             homepage_frame.dispose();
-            movie1_label.setText("MAUJAN HI MAUJAN-PUNJABI");
-            Save_Movie_Name="Maujan Hi Maujan-Punjabi";
+            movie1_label.setText("MAUJAN HI MAUJAN - PUNJABI");
+            Save_Movie_Name="Maujan Hi Maujan - Punjabi";
         }
 
         if (e.getSource() == r1) {
