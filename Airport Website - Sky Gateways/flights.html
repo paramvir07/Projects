@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" href="flight.css">
+</head>
+<body>   
+    <header>  
+        <h1>SKY GATEWAYS &#9992</h1>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="airport.html">Home</a></li>
+                <li class="nav-item"><a href="flights.html" class="active">Flights</a></li>
+                <li class="nav-item"><a href="contacts.html" >Contact</a></li>
+                <li class="nav-item"><a href="login .html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="form-container">
+            <h1><center>Compare and Book Flights with Ease</center></h1>
+            <p><center>Discover Your Next Dream Destination</center></p>
+        
+        
+        <form id ="booking-form">
+            <div class="radio-options">
+                <input type="radio" name="radio" id="round-trip"> <label for="round-trip">Round trip</label>
+                <input type="radio" name="radio" id="one-way"> <label for="one-way">One-way</label>
+                <input type="radio" name="radio" id="multi-city"> <label for="multi-city">Multi-City</label>
+            </div>
+            <div class ="select-options">
+                <label for="class">Choose Class:</label>
+            <select name="class" id="class">
+                <option value="Economy">Economy</option>
+                <option value="Premium" selected>Premium</option>
+                <option value="Firstclass">First class</option>
+                <option value="Business">Business</option>
+            </select>
+            <br><br>
+            </div>
+            
+            
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="input-group">
+                    <div>
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" placeholder="First Name">
+                    </div>
+                    <div>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" placeholder="Last Name">
+                    </div>
+                    <div>
+                        <label for="date">Date:</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div>
+                        <label for="phone">Contact:</label>
+                    <input type="text" placeholder="Phone Number" id="phone">
+                    <input type="email" placeholder="E-mail Address" id="email">
+                    </div>
+                    <div>
+                        <label for="address">Address:</label>
+                    <input type="text" placeholder="Street Address" id="street1">
+                    <input type="text" placeholder="Street Address Line 2" id="street2">
+                    <input type="text" placeholder="City" id="city">
+                    <input type="text" placeholder="State" id="state">
+                    <input type="text" placeholder="Postal/Zip Code" id="postal">
+                    <input type="text" placeholder="Country" id="country">
+                    </div>
+                    <div>
+                        <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date">
+                    <label for="departure-time">Departure Time:</label>
+                    <input type="time" id="departure-time">
+                    </div>
+                    <div>
+                        <label for="return-date">Return Date:</label>
+                    <input type="date" id="return-date">
+                    <label for="return-time">Return Time:</label>
+                    <input type="time" id="return-time">
+                    </div>
+                    <div>
+                        <label for="departing-from">Departing From:</label>
+                        <input type="text" placeholder="City" id="departing-city">
+                        <input type="text" placeholder="Country" id="departing-country">
+                    </div>
+                    <div>
+                        <label for="destination">Destination:</label>
+                        <input type="text" placeholder="City" id="destination-city">
+                        <input type="text" placeholder="Country" id="destination-country">
+                    </div>
+                    <div>
+                        <button type="submit" value="Submit">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="popup" id="popup">
+        <h2>Thank You!</h2>
+        <p>Your booking has been submitted successfully.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <script>
+        document.getElementById("booking-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        });
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none"; 
+        }
+    </script>
+</body>
+</html>
+
+                   
