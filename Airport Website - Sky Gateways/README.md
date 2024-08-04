@@ -1,1 +1,0 @@
-Sky Gateways is a website where you can book flights. You start by picking where you want to go on the homepage. If you're new, you can sign up. Then, you fill in your travel details on the flights booking page. The website uses JavaScript in the Sign Up page which make things easy for the users. HTML and CSS are used to make the website attractive.
