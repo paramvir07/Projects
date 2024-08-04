@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking</title>
     <link rel="stylesheet" href="flight.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .input-group div {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>   
     <header>  
@@ -14,85 +23,103 @@
             <ul>
                 <li class="nav-item"><a href="airport.html">Home</a></li>
                 <li class="nav-item"><a href="flights.html" class="active">Flights</a></li>
-                <li class="nav-item"><a href="contacts.html" >Contact</a></li>
-                <li class="nav-item"><a href="login .html">Sign Up</a></li>
+                <li class="nav-item"><a href="contacts.html">Contact</a></li>
+                <li class="nav-item"><a href="login.html">Sign Up</a></li>
             </ul>
         </nav>
     </header> 
 
     <div class="form-container">
-            <h1><center>Compare and Book Flights with Ease</center></h1>
-            <p><center>Discover Your Next Dream Destination</center></p>
+        <h1><center>Compare and Book Flights with Ease</center></h1>
+        <p><center>Discover Your Next Dream Destination</center></p>
         
-        
-        <form id ="booking-form">
-            <div class="radio-options">
-                <input type="radio" name="radio" id="round-trip"> <label for="round-trip">Round trip</label>
-                <input type="radio" name="radio" id="one-way"> <label for="one-way">One-way</label>
-                <input type="radio" name="radio" id="multi-city"> <label for="multi-city">Multi-City</label>
+        <form id="booking-form">
+            <div class="radio-options" required>
+                <input type="radio" name="trip-type" id="round-trip" required> <label for="round-trip">Round trip</label>
+                <input type="radio" name="trip-type" id="one-way"> <label for="one-way">One-way</label>
+                <input type="radio" name="trip-type" id="multi-city" > <label for="multi-city">Multi-City</label>
+                <div class="error" id="trip-type-error"></div>
             </div>
-            <div class ="select-options">
+            <div class="select-options">
                 <label for="class">Choose Class:</label>
-            <select name="class" id="class">
-                <option value="Economy">Economy</option>
-                <option value="Premium" selected>Premium</option>
-                <option value="Firstclass">First class</option>
-                <option value="Business">Business</option>
-            </select>
-            <br><br>
+                <select name="class" id="class" required>
+                    <option value="" selected>Select Class</option>
+                    <option value="Economy"required>Economy</option>
+                    <option value="Premium" >Premium</option>
+                    <option value="Firstclass" required>First class</option>
+                    <option value="Business" required>Business</option>
+                </select>
+                <div class="error" id="class-error"></div>
             </div>
-            
             
             <fieldset>
                 <legend>Personal Information</legend>
                 <div class="input-group">
                     <div>
                         <label for="fname">First Name:</label>
-                        <input type="text" id="fname" placeholder="First Name">
+                        <input type="text" id="fname" placeholder="First Name" required>
+                        <div class="error" id="fname-error"></div>
                     </div>
                     <div>
                         <label for="lname">Last Name:</label>
-                        <input type="text" id="lname" placeholder="Last Name">
+                        <input type="text" id="lname" placeholder="Last Name" required>
+                        <div class="error" id="lname-error"></div>
                     </div>
                     <div>
                         <label for="date">Date:</label>
-                        <input type="date" id="date">
+                        <input type="date" id="date" required>
+                        <div class="error" id="date-error"></div>
                     </div>
                     <div>
                         <label for="phone">Contact:</label>
-                    <input type="text" placeholder="Phone Number" id="phone">
-                    <input type="email" placeholder="E-mail Address" id="email">
+                        <input type="text" placeholder="Phone Number" id="phone" required>
+                        <div class="error" id="phone-error"></div>
+                        <input type="email" placeholder="E-mail Address" id="email" required>
+                        <div class="error" id="email-error"></div>
                     </div>
                     <div>
                         <label for="address">Address:</label>
-                    <input type="text" placeholder="Street Address" id="street1">
-                    <input type="text" placeholder="Street Address Line 2" id="street2">
-                    <input type="text" placeholder="City" id="city">
-                    <input type="text" placeholder="State" id="state">
-                    <input type="text" placeholder="Postal/Zip Code" id="postal">
-                    <input type="text" placeholder="Country" id="country">
+                        <input type="text" placeholder="Street Address" id="street1" required>
+                        <div class="error" id="street1-error"></div>
+                        <input type="text" placeholder="Street Address Line 2" id="street2">
+                        <input type="text" placeholder="City" id="city" required>
+                        <div class="error" id="city-error"></div>
+                        <input type="text" placeholder="State" id="state" required>
+                        <div class="error" id="state-error"></div>
+                        <input type="text" placeholder="Postal/Zip Code" id="postal" required>
+                        <div class="error" id="postal-error"></div>
+                        <input type="text" placeholder="Country" id="country" required>
+                        <div class="error" id="country-error"></div>
                     </div>
                     <div>
                         <label for="departure-date">Departure Date:</label>
-                    <input type="date" id="departure-date">
-                    <label for="departure-time">Departure Time:</label>
-                    <input type="time" id="departure-time">
+                        <input type="date" id="departure-date" required>
+                        <div class="error" id="departure-date-error"></div>
+                        <label for="departure-time">Departure Time:</label>
+                        <input type="time" id="departure-time" required>
+                        <div class="error" id="departure-time-error"></div>
                     </div>
                     <div>
                         <label for="return-date">Return Date:</label>
-                    <input type="date" id="return-date">
-                    <label for="return-time">Return Time:</label>
-                    <input type="time" id="return-time">
+                        <input type="date" id="return-date">
+                        <div class="error" id="return-date-error"></div>
+                        <label for="return-time">Return Time:</label>
+                        <input type="time" id="return-time">
+                        <div class="error" id="return-time-error"></div>
                     </div>
                     <div>
                         <label for="departing-from">Departing From:</label>
-                        <input type="text" placeholder="City" id="departing-city">
-                        <input type="text" placeholder="Country" id="departing-country">
+                        <input type="text" placeholder="City" id="departing-city" required>
+                        <div class="error" id="departing-city-error"></div>
+                        <input type="text" placeholder="Country" id="departing-country" required>
+                        <div class="error" id="departing-country-error"></div>
                     </div>
                     <div>
                         <label for="destination">Destination:</label>
-                        <input type="text" placeholder="City" id="destination-city">
-                        <input type="text" placeholder="Country" id="destination-country">
+                        <input type="text" placeholder="City" id="destination-city" required>
+                        <div class="error" id="destination-city-error"></div>
+                        <input type="text" placeholder="Country" id="destination-country" required>
+                        <div class="error" id="destination-country-error"></div>
                     </div>
                     <div>
                         <button type="submit" value="Submit">Submit</button>
@@ -110,8 +137,60 @@
     <script>
         document.getElementById("booking-form").addEventListener("submit", function(event) {
             event.preventDefault(); 
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
+            
+            let isValid = true;
+
+            const fields = [
+                { id: "round-trip", type: "radio", errorId: "trip-type-error" },
+                { id: "one-way", type: "radio", errorId: "trip-type-error" },
+                { id: "multi-city", type: "radio", errorId: "trip-type-error" },
+                { id: "class", type: "select", errorId: "class-error" },
+                { id: "fname", type: "input", errorId: "fname-error" },
+                { id: "lname", type: "input", errorId: "lname-error" },
+                { id: "date", type: "input", errorId: "date-error" },
+                { id: "phone", type: "input", errorId: "phone-error" },
+                { id: "email", type: "input", errorId: "email-error" },
+                { id: "street1", type: "input", errorId: "street1-error" },
+                { id: "city", type: "input", errorId: "city-error" },
+                { id: "state", type: "input", errorId: "state-error" },
+                { id: "postal", type: "input", errorId: "postal-error" },
+                { id: "country", type: "input", errorId: "country-error" },
+                { id: "departure-date", type: "input", errorId: "departure-date-error" },
+                { id: "departure-time", type: "input", errorId: "departure-time-error" },
+                { id: "return-date", type: "input", errorId: "return-date-error" },
+                { id: "return-time", type: "input", errorId: "return-time-error" },
+                { id: "departing-city", type: "input", errorId: "departing-city-error" },
+                { id: "departing-country", type: "input", errorId: "departing-country-error" },
+                { id: "destination-city", type: "input", errorId: "destination-city-error" },
+                { id: "destination-country", type: "input", errorId: "destination-country-error" }
+            ];
+
+            fields.forEach(field => {
+                const element = document.getElementById(field.id);
+                const errorElement = document.getElementById(field.errorId);
+                
+                if (field.type === "radio") {
+                    if (![...document.getElementsByName("trip-type")].some(radio => radio.checked)) {
+                        errorElement.textContent = "This field is required";
+                        isValid = false;
+                    } else {
+                        errorElement.textContent = "";
+                    }
+                } else if (field.type === "select" && !element.value) {
+                    errorElement.textContent = "This field is required";
+                    isValid = false;
+                } else if (!element.value) {
+                    errorElement.textContent = "This field is required";
+                    isValid = false;
+                } else {
+                    errorElement.textContent = "";
+                }
+            });
+
+            if (isValid) {
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
+            }
         });
 
         function closePopup() {
@@ -121,5 +200,3 @@
     </script>
 </body>
 </html>
-
-                   
