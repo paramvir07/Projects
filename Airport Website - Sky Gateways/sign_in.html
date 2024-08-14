@@ -2,234 +2,502 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="Logo.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In - Sky Gateways</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            background-color: #f2f2f2;
-            background-image: url("Customer_login_page_bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
+        
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f2f2f2;
+    background-image: url("Customer_login_page_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        .city-container {
-            background: linear-gradient(to right, #3f51b5, #2196f3);
-            padding: 10px 0;
-            overflow: hidden;
-        }
+header {
+    background: linear-gradient(to right, #3f51b5, #2196f3);
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000;
+}
 
-        header {
-            background: linear-gradient(to right, #3f51b5, #2196f3);
-            padding: 20px 20px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 30px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            color: white;
-        }
+header img {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: flex-end; 
-        }
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
 
-        .nav-item {
-            margin: 0 20px;
-        }
+.nav_ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
 
-        .nav-item a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+.nav_li {
+    margin: 0 15px;
+}
 
-        .nav-item a.active,
-        .nav-item a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+.nav_li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+}
 
-        .container-wrapper {
-            background-color: rgba(255, 255, 255, 0.6); 
-            border-radius: 10px;
-            margin: 50px auto;
-            padding: 20px;
-            width: 300px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
+.nav_ul .nav_li a.active,
+.nav_ul .nav_li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
 
-        .form-container-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            z-index: -1;
-        }
+.container-wrapper {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-        .container {
-            width: 100%;
-            position: relative;
-        }
+.form-container-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: -1;
+}
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-            color: #333333;
-        }
+.container {
+    width: 100%;
+    position: relative;
+}
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333333;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555555;
-            font-weight: bold;
-        }
+.form-group {
+    margin-bottom: 15px;
+}
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            margin-top: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555555;
+    font-weight: bold;
+}
 
-        .links-group {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px 0;
-        }
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
 
-        .links-group a {
-            color: #3f51b5;
-            text-decoration: none;
-            font-size: 14px;
-        }
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
 
-        .links-group a:hover {
-            text-decoration: underline;
-        }
+input[type="submit"],
+input[type="reset"] {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
 
-        .button-group {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
+input[type="reset"] {
+    background-color: #f44336;
+}
 
-        input[type="submit"],
-        input[type="reset"] {
-            width: 48%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: #ffffff;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
 
-        input[type="reset"] {
-            background-color: #f44336;
-        }
+.signup-message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
 
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
-            background-color: #45a049;
-        }
+.signup-message a {
+    color: #3f51b5;
+    text-decoration: none;
+}
 
-        .signup-message {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
+.signup-message a:hover {
+    text-decoration: underline;
+}
 
-        .signup-message a {
-            color: #3f51b5;
-            text-decoration: none;
-        }
+.dialog {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
 
-        .signup-message a:hover {
-            text-decoration: underline;
-        }
+.dialog-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 400px;
+    animation: scaleUp 0.3s ease;
+}
 
-        /* Dialog Box Styles */
-        .dialog {
-            display: none; 
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
+.dialog-content p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-        .dialog-content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            width: 80%;
-            max-width: 400px;
-            animation: scaleUp 0.3s ease;
-        }
+.dialog-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
 
-        .dialog-content p {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-        }
+.dialog-content button:hover {
+    background-color: #45a049;
+}
 
-        .dialog-content button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: #fff;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+footer {
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-        .dialog-content button:hover {
-            background-color: #45a049;
-        }
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        /* Animations */
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+    padding: 10px;
+    text-align: center;
+    color: #f2f2f2;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #e6e6e6;
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-contact i {
+    color: rgb(77, 77, 188);
+    font-size: 18px;
+}
+
+.footer-contact p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.footer-contact a {
+    color: #66b2ff;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-section h4 img {
+    width: 30px; 
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.footer-section p {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: #66b2ff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 16px;
+}
+
+.footer-section ul li a:hover {
+    color: #e6e6e6;
+}
+
+.footer-bottom {
+    background-color: #0d0d0d;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #b3b3b3;
+}
+
+
+
+@media (max-width: 890px) {
+    .nav_ul {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 150px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        text-align: right;
+    }
+
+    .nav_ul.nav-active {
+        display: flex;
+    }
+    .nav_li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    .dialog-content p{
+        font-size: 16px;
+    };
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+    .hamburger {
+        font-size: 30px;
+        padding-right: 15px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .nav_li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    .dialog-content p{
+        font-size: 16px;
+    };
+   
+}
+
+@media (max-width: 480px) {
+    .hamburger {
+        font-size: 20px;
+    }
+    header img {
+        width: 30px;
+        height: 30px;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+    .dialog-content p{
+        font-size: 16px;
+    }
+    .nav_li a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+    
+
+   
+}
+@media (max-width: 430px) {
+    /* Header adjustments */
+    header {
+        padding: 10px;
+    }
+    .hamburger {
+        font-size: 28px; 
+        padding-right: 10px;
+    }
+    header h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    header img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .nav_ul {
+        top: 50px; /* Adjust to align with the top of the header */
+        width: 100%; /* Full width */
+    }
+
+
+    .nav_li a {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    /* Form adjustments */
+    .container-wrapper {
+        width: 85%;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .signup-message {
+        font-size: 12px;
+    }
+
+    .dialog-content {
+        width: 90%;
+        padding: 20px;
+    }
+    .dialog-content p{
+        font-size: 16px;
+    };
+
+    .footer-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .footer-contact {
+        flex-direction: row;
+        align-items: center;
+        margin: 5px 0;
+    }
+}
+
+
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -241,7 +509,7 @@
 
         @keyframes scaleUp {
             from {
-                transform: scale(0.9);
+                transform: scale(0.8);
             }
             to {
                 transform: scale(1);
@@ -250,42 +518,43 @@
     </style>
 </head>
 <body>
-    <header>  
-        <h1>SKY GATEWAYS &#9992</h1>
+    <header>
+        <h1><img src="Logo.png" alt="Logo">SKY GATEWAYS</h1>
         <nav>
-            <ul>
-                <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="flights.html">Flights</a></li>
-                <li class="nav-item"><a href="contacts.html">Contact</a></li>
-                <li class="nav-item"><a href="sign_in.html" class="active">Sign In</a></li>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav_ul">
+                <li class="nav_li"><a href="index.html" class="active">Home</a></li>
+                <li class="nav_li"><a href="flights.html">Flights</a></li>
+                <li class="nav_li"><a href="contacts.html">Contact</a></li>
+                <li class="nav_li"><a href="sign_in.html">Sign In</a></li>
             </ul>
         </nav>
-    </header> 
+    </header>
+
     <div class="container-wrapper">
-        <div class="form-container-background"></div> 
         <div class="container">
             <h1>Sign In</h1>
-            <form id="loginForm">
+            <div class="form-container-background"></div>
+            <form>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <label for="email">Email address:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" id="password" name="password" required>
                 </div>
                 <div class="button-group">
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Sign In">
                     <input type="reset" value="Reset">
                 </div>
-                <div class="signup-message">
-                    <p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
-                </div>
             </form>
+            <div class="signup-message">
+                <p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+            </div>
         </div>
     </div>
 
-    <!-- Pop-up Dialog -->
     <div id="dialog" class="dialog">
         <div class="dialog-content">
             <p>Login Successfully!</p>
@@ -293,7 +562,61 @@
         </div>
     </div>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4><img src="Logo.png" alt="Logo">Sky Gateways</h4>
+                <p>Sky Gateways is your gateway to the nation. We offer a wide range of flight options to various destinations across the country.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <div class="footer-contact">
+                    <a href="tel:+91 80076-55xxx">
+                    <i class="fas fa-phone"></i>
+                    </a>
+                    <p>+91 80076-55xxx</a></p>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:info@skygateways.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                    <p>info@skygateways.com</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>
+                        <a style="color: rgb(77, 77, 188);" href="index.html">
+                        </a>
+                        <a style="color: rgb(77, 77, 188);" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(77, 77, 188);" href="flights.html">
+                        </a>
+                        <a style="color: rgb(77, 77, 188);" href="flights.html">Flights</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(77, 77, 188);" href="contacts.html">
+                        </a>
+                        <a style="color: rgb(77, 77, 188);" href="contacts.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sky Gateways. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navUl = document.querySelector('.nav_ul');
+
+        hamburger.addEventListener('click', () => {
+            navUl.classList.toggle('nav-active');
+        });
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
             document.getElementById('dialog').style.display = 'flex'; 
